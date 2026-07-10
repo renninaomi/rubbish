@@ -2,6 +2,14 @@
 
 #.\useful\automatic_time_synchronization.ps1
 
+# encoding: UTF-8 BOM
+
+# 设置控制台编码为 UTF-8 以防止中文乱码
+chcp 65001 > $null
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+$OutputEncoding = [System.Text.Encoding]::UTF8
+[Console]::InputEncoding = [System.Text.Encoding]::UTF8
+
 # 确保 Windows Time 服务正在运行
 $service = Get-Service w32time
 if ($service.Status -ne 'Running') {
