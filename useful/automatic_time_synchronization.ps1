@@ -31,7 +31,7 @@ for ($round = 1; $round -le $maxRounds; $round++) {
             w32tm /config /manualpeerlist:"$server" /syncfromflags:manual /reliable:no /update | Out-Null
             
             # Force resync
-            $result = w32tm /resync 2>&1
+            w32tm /resync 2>&1 | Out-Null
             
             if ($LASTEXITCODE -eq 0) {
                 Write-Host "  Success: $server" -ForegroundColor Green
